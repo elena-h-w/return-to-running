@@ -2,9 +2,9 @@
 
 [![MIT License](https://img.shields.io/badge/license-MIT-green.svg)](LICENSE)
 
-A return-to-running tracker combining a PT strength routine with a structured walk/jog progression program. Mobile-friendly web app designed for one-handed iPhone use mid-workout.
+A return-to-running tracker combining a PT strength routine with a structured walk/jog progression program. Mobile-friendly web app designed for one-handed phone use mid-workout.
 
-**[→ Live demo](https://return-to-running.vercel.app)**
+**[Live demo](https://return-to-running.vercel.app)**
 
 ---
 
@@ -30,7 +30,7 @@ Before logging any run, you rate any pain using a four-type scale (Types 1–4).
 - **Advancement gate** — 2 consecutive pain-free sessions required before moving to the next run stage
 - **Phase tracker** — visual progress indicator across all three run phases
 - **Session log** — full history of every session with pain ratings
-- **PWA** — installable on iPhone home screen, works offline
+- **PWA** — installable on your phone's home screen (iOS via Safari → Add to Home Screen; Android via Chrome), works offline
 
 ---
 

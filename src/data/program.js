@@ -200,11 +200,11 @@ export const RUN_PHASES = [
     description: 'Alternate walking and jogging intervals. Advance only when each stage is fully pain-free with no morning stiffness.',
     type: 'stages',
     stages: [
-      { id: 'p2s1', stage: 'I',   walk: 5, jog: 1, reps: 5, totalMin: 30 },
-      { id: 'p2s2', stage: 'II',  walk: 4, jog: 2, reps: 5, totalMin: 30 },
-      { id: 'p2s3', stage: 'III', walk: 3, jog: 3, reps: 5, totalMin: 30 },
-      { id: 'p2s4', stage: 'IV',  walk: 2, jog: 4, reps: 5, totalMin: 30 },
-      { id: 'p2s5', stage: 'V',   walk: 5, jog: 30, reps: 1, totalMin: 40, note: '5 min walk warm-up + 30 min jog + 5 min walk cool-down' },
+      { id: 'p2s1', stage: '1', walk: 5, jog: 1, reps: 5, totalMin: 30 },
+      { id: 'p2s2', stage: '2', walk: 4, jog: 2, reps: 5, totalMin: 30 },
+      { id: 'p2s3', stage: '3', walk: 3, jog: 3, reps: 5, totalMin: 30 },
+      { id: 'p2s4', stage: '4', walk: 2, jog: 4, reps: 5, totalMin: 30 },
+      { id: 'p2s5', stage: '5', walk: 5, jog: 30, reps: 1, totalMin: 40, note: '5 min walk warm-up + 30 min jog + 5 min walk cool-down' },
     ],
   },
   {
