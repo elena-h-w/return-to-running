@@ -1,0 +1,390 @@
+.page {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+.header {
+  padding: 20px 20px 8px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 30px;
+  color: var(--text-primary);
+}
+
+.tabs {
+  display: flex;
+  gap: 4px;
+  margin: 8px 16px 16px;
+  background: var(--border);
+  border-radius: var(--radius-md);
+  padding: 3px;
+}
+
+.tabBtn {
+  flex: 1;
+  padding: 9px 12px;
+  border-radius: calc(var(--radius-md) - 2px);
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  transition: background 0.15s, color 0.15s;
+}
+
+.tabActive {
+  background: var(--surface);
+  color: var(--text-primary);
+  box-shadow: var(--shadow-sm);
+}
+
+.section {
+  padding: 0 16px 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.sectionNote {
+  font-size: 13px;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+/* Phase nav */
+.phaseNav {
+  display: flex;
+  align-items: center;
+  padding: 16px 0 4px;
+  gap: 0;
+}
+
+.phaseStep {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+  flex: 1;
+  position: relative;
+}
+
+.phaseCircle {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  border: 2px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--text-muted);
+  background: var(--surface);
+  z-index: 1;
+  transition: background 0.2s, border-color 0.2s;
+}
+
+.phaseCurrent .phaseCircle {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-light);
+}
+
+.phaseDone .phaseCircle {
+  border-color: var(--success);
+  background: var(--success);
+}
+
+.phaseLabel {
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-muted);
+  text-align: center;
+}
+
+.phaseCurrent .phaseLabel {
+  color: var(--accent);
+  font-weight: 600;
+}
+
+.phaseConnector {
+  position: absolute;
+  top: 16px;
+  left: 66%;
+  width: 68%;
+  height: 2px;
+  background: var(--border);
+}
+
+.phaseConnectorDone {
+  background: var(--success);
+}
+
+/* Phase card */
+.phaseCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.phaseTag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--accent);
+  margin-bottom: 4px;
+}
+
+.phaseTitle {
+  font-family: var(--font-display);
+  font-size: 22px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.phaseDesc {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+  margin-bottom: 16px;
+}
+
+/* Stage list */
+.stageList {
+  display: flex;
+  flex-direction: column;
+  gap: 0;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+}
+
+.stageRow {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 10px 14px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface-warm);
+}
+
+.stageRow:last-child { border-bottom: none; }
+
+.stageCurrent {
+  background: var(--accent-light);
+}
+
+.stageDone {
+  opacity: 0.6;
+}
+
+.stageMarker {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  border: 1.5px solid var(--border);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  font-weight: 700;
+  color: var(--text-muted);
+  flex-shrink: 0;
+}
+
+.stageCurrent .stageMarker {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: white;
+}
+
+.stageDone .stageMarker {
+  border-color: var(--success);
+  background: var(--success);
+  color: white;
+}
+
+.stageInfo {
+  flex: 1;
+}
+
+.stageDesc {
+  font-size: 13px;
+  color: var(--text-secondary);
+}
+
+.currentTag {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--accent-light);
+  border-radius: 999px;
+  padding: 2px 8px;
+}
+
+/* Up next */
+.upNextCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  border: 1.5px dashed var(--border);
+}
+
+.upNextLabel {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: var(--text-muted);
+  margin-bottom: 4px;
+}
+
+.upNextTitle {
+  font-family: var(--font-display);
+  font-size: 18px;
+  color: var(--text-primary);
+  margin-bottom: 12px;
+}
+
+/* Phase 3 schedule */
+.scheduleTable {
+  font-size: 12px;
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  overflow: auto;
+}
+
+.scheduleHeader, .scheduleRow {
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid var(--border);
+  padding: 6px 10px;
+}
+
+.scheduleRow:last-child { border-bottom: none; }
+
+.scheduleHeader {
+  background: var(--bg);
+  font-weight: 700;
+  color: var(--text-muted);
+}
+
+.wkLabel {
+  width: 40px;
+  flex-shrink: 0;
+  font-weight: 600;
+  color: var(--text-muted);
+}
+
+.dayCol {
+  flex: 1;
+  text-align: center;
+  padding: 2px 0;
+}
+
+.runDay {
+  color: var(--run);
+  font-weight: 600;
+}
+
+.restDay {
+  color: var(--text-muted);
+}
+
+/* Strength accordion */
+.exCard {
+  background: var(--surface);
+  border-radius: var(--radius-md);
+  overflow: hidden;
+  box-shadow: var(--shadow-sm);
+}
+
+.exCardHeader {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 14px 14px;
+  text-align: left;
+}
+
+.exCardNum {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  background: var(--bg);
+  border: 1.5px solid var(--border);
+  font-size: 12px;
+  font-weight: 600;
+  color: var(--text-muted);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.exCardInfo {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 1px;
+}
+
+.exCardName {
+  font-size: 15px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.exCardMeta {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.exCardBody {
+  padding: 0 14px 16px;
+  border-top: 1px solid var(--border);
+}
+
+.exEquipment {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  margin: 12px 0;
+}
+
+.tag {
+  font-size: 12px;
+  font-weight: 500;
+  color: var(--accent-dark);
+  background: var(--accent-light);
+  padding: 4px 10px;
+  border-radius: 999px;
+}
+
+.exInstructions {
+  padding-left: 18px;
+  display: flex;
+  flex-direction: column;
+  gap: 6px;
+  margin-bottom: 12px;
+}
+
+.exInstructions li {
+  font-size: 14px;
+  color: var(--text-secondary);
+  line-height: 1.5;
+}
+
+.exCue {
+  font-size: 13px;
+  font-weight: 500;
+  color: var(--accent-dark);
+  background: var(--accent-light);
+  border-radius: var(--radius-sm);
+  padding: 10px 12px;
+}

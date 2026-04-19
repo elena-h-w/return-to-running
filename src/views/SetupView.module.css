@@ -1,0 +1,133 @@
+.page {
+  min-height: 100%;
+  background: var(--bg);
+}
+
+.inner {
+  padding: 40px 20px 48px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+}
+
+.logoMark {
+  font-size: 40px;
+  margin-bottom: 12px;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 34px;
+  color: var(--text-primary);
+  margin-bottom: 8px;
+}
+
+.sub {
+  font-size: 16px;
+  color: var(--text-muted);
+  margin-bottom: 32px;
+  line-height: 1.5;
+}
+
+.card {
+  width: 100%;
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+  text-align: left;
+  margin-bottom: 16px;
+}
+
+.cardTitle {
+  font-family: var(--font-display);
+  font-size: 20px;
+  color: var(--text-primary);
+  margin-bottom: 6px;
+}
+
+.cardDesc {
+  font-size: 14px;
+  color: var(--text-muted);
+  line-height: 1.5;
+  margin-bottom: 14px;
+}
+
+.dateInput {
+  width: 100%;
+  padding: 12px 14px;
+  border-radius: var(--radius-md);
+  border: 1.5px solid var(--border);
+  font-size: 16px;
+  color: var(--text-primary);
+  background: var(--bg);
+  font-family: var(--font-body);
+}
+
+.patternGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+}
+
+.dayBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 4px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface-warm);
+  transition: background 0.15s, border-color 0.15s;
+}
+
+.dayBtn_strength {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.dayBtn_run {
+  background: var(--run-light);
+  border-color: var(--run);
+}
+
+.dayName {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.dayIcon {
+  font-size: 16px;
+}
+
+.dayTypeLabel {
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+.dayBtn_strength .dayTypeLabel { color: var(--accent-dark); }
+.dayBtn_run .dayTypeLabel { color: var(--run); }
+
+.startBtn {
+  width: 100%;
+  padding: 17px;
+  border-radius: var(--radius-lg);
+  background: var(--accent);
+  color: white;
+  font-size: 18px;
+  font-weight: 700;
+  margin-top: 8px;
+  transition: background 0.15s, transform 0.1s;
+}
+
+.startBtn:active {
+  background: var(--accent-dark);
+  transform: scale(0.98);
+}
