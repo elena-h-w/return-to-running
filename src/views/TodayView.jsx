@@ -14,7 +14,7 @@ function WeekStrip({ pattern, todayDow }) {
         <div key={d} className={`${styles.dayCell} ${i === todayDow ? styles.dayCellToday : ''}`}>
           <span className={styles.dayName}>{d}</span>
           <span className={`${styles.dayType} ${styles[`dayType_${pattern[i]}`]}`}>
-            {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃🏻‍♀️' : '—'}
+            {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃🏻‍♀️' : '🧘🏻‍♀️'}
           </span>
         </div>
       ))}
@@ -105,7 +105,7 @@ export default function TodayView({ program }) {
       {/* TODAY CONTENT */}
       {todayType === 'rest' && (
         <div className={styles.restCard}>
-          <div className={styles.restEmoji}>☁️</div>
+          <div className={styles.restEmoji}>🧘🏻‍♀️</div>
           <h2 className={styles.restTitle}>Rest day</h2>
           <p className={styles.restText}>Recovery is part of the program. Let your body absorb the work.</p>
         </div>
