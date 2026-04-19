@@ -244,7 +244,7 @@ export const PAIN_TYPES = [
   },
   {
     id: 'type-1',
-    label: 'Type I — After activity only',
+    label: 'Type 1 — After activity only',
     description: 'Pain appeared only after the activity and resolved within 24 hours.',
     allowAdvance: true,
     color: 'warning',
@@ -252,7 +252,7 @@ export const PAIN_TYPES = [
   },
   {
     id: 'type-2',
-    label: 'Type II — Start then gone',
+    label: 'Type 2 — Start then gone',
     description: 'Discomfort at the start of activity but disappeared once warmed up.',
     allowAdvance: true,
     color: 'warning',
@@ -260,7 +260,7 @@ export const PAIN_TYPES = [
   },
   {
     id: 'type-3',
-    label: 'Type III — Developed and worsened',
+    label: 'Type 3 — Developed and worsened',
     description: 'Pain came on during the session and got worse as you continued.',
     allowAdvance: false,
     color: 'danger',
@@ -268,7 +268,7 @@ export const PAIN_TYPES = [
   },
   {
     id: 'type-4',
-    label: 'Type IV — Nighttime / woke you',
+    label: 'Type 4 — Nighttime / woke you',
     description: 'Pain at night or pain that woke you from sleep.',
     allowAdvance: false,
     color: 'danger',

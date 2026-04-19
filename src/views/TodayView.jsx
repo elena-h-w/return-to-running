@@ -14,7 +14,7 @@ function WeekStrip({ pattern, todayDow }) {
         <div key={d} className={`${styles.dayCell} ${i === todayDow ? styles.dayCellToday : ''}`}>
           <span className={styles.dayName}>{d}</span>
           <span className={`${styles.dayType} ${styles[`dayType_${pattern[i]}`]}`}>
-            {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃' : '—'}
+            {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃🏻‍♀️' : '—'}
           </span>
         </div>
       ))}

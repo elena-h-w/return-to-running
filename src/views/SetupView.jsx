@@ -37,7 +37,7 @@ export default function SetupView({ onComplete }) {
   return (
     <div className={styles.page + ' page-scroll'}>
       <div className={styles.inner}>
-        <div className={styles.logoMark}>🏃</div>
+        <div className={styles.logoMark}>🏃🏻‍♀️</div>
         <h1 className={styles.title}>Back on Track</h1>
         <p className={styles.sub}>Let's configure your program before we begin.</p>
 
@@ -60,7 +60,7 @@ export default function SetupView({ onComplete }) {
               <button key={d} className={`${styles.dayBtn} ${styles[`dayBtn_${weekPattern[i]}`]}`} onClick={() => cycleDay(i)}>
                 <span className={styles.dayName}>{d}</span>
                 <span className={styles.dayIcon}>
-                  {weekPattern[i] === 'strength' ? '💪' : weekPattern[i] === 'run' ? '🏃' : '—'}
+                  {weekPattern[i] === 'strength' ? '💪' : weekPattern[i] === 'run' ? '🏃🏻‍♀️' : '—'}
                 </span>
                 <span className={styles.dayTypeLabel}>{weekPattern[i]}</span>
               </button>
