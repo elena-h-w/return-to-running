@@ -5,6 +5,8 @@ export default function RestTimer({ defaultSeconds = 60, onDone }) {
   const [seconds, setSeconds] = useState(defaultSeconds)
   const [running, setRunning] = useState(true)
   const intervalRef = useRef(null)
+  const onDoneRef = useRef(onDone)
+  useEffect(() => { onDoneRef.current = onDone }, [onDone])
 
   useEffect(() => {
     if (running && seconds > 0) {
@@ -13,7 +15,7 @@ export default function RestTimer({ defaultSeconds = 60, onDone }) {
           if (s <= 1) {
             clearInterval(intervalRef.current)
             setRunning(false)
-            onDone?.()
+            onDoneRef.current?.()
             return 0
           }
           return s - 1

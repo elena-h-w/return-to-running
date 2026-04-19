@@ -26,12 +26,13 @@ export default function StrengthWorkout({ onComplete, onExit }) {
 
   function handleRestDone() {
     setShowRest(false)
-    if (!isLastSet) {
-      setSetNum(s => s + 1)
-    } else {
-      setExerciseIdx(i => i + 1)
-      setSetNum(1)
-    }
+    setSetNum(prev => {
+      if (prev >= exercise.sets) {
+        setExerciseIdx(i => i + 1)
+        return 1
+      }
+      return prev + 1
+    })
   }
 
   if (done) {
