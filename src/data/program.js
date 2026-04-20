@@ -189,7 +189,7 @@ export const RUN_PHASES = [
     id: 'phase-1',
     phase: 1,
     name: 'Walking Base',
-    description: 'Walk pain-free at 4.0–4.5 mph on a treadmill. Log walks daily and mark ready to advance when comfortable at target pace.',
+    description: 'Walk at least 30 min pain-free at 4.0–4.5 mph on a treadmill. Log walks daily and mark ready to advance when comfortable at target pace.',
     type: 'open',
     advanceCondition: 'User confirms comfortable walking at target pace with no pain or stiffness.',
   },
