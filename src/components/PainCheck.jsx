@@ -10,6 +10,8 @@ export default function PainCheck({ onSubmit, onCancel }) {
     onSubmit(selected)
   }
 
+  const selectedData = PAIN_TYPES.find(p => p.id === selected)
+
   return (
     <div className={styles.overlay}>
       <div className={styles.sheet + ' scale-in'}>
@@ -18,25 +20,25 @@ export default function PainCheck({ onSubmit, onCancel }) {
         <p className={styles.subtitle}>Be honest — this guides your progression.</p>
 
         <div className={styles.options}>
-          {PAIN_TYPES.map(pt => {
-            const isSelected = selected === pt.id
-            return (
-              <button
-                key={pt.id}
-                className={`${styles.option} ${isSelected ? `${styles.selected} ${styles[pt.color]}` : ''}`}
-                onClick={() => setSelected(pt.id)}
-              >
-                <span className={styles.optionLabel}>{pt.label}</span>
-                <span className={styles.optionDesc}>{pt.description}</span>
-                {isSelected && pt.note && (
-                  <span className={styles.inlineNote}>{pt.note}</span>
-                )}
-                {isSelected && pt.warning && (
-                  <span className={styles.inlineWarning}>⚠️ {pt.warning}</span>
-                )}
-              </button>
-            )
-          })}
+          {PAIN_TYPES.map(pt => (
+            <button
+              key={pt.id}
+              className={`${styles.option} ${selected === pt.id ? `${styles.selected} ${styles[pt.color]}` : ''}`}
+              onClick={() => setSelected(pt.id)}
+            >
+              <span className={styles.optionLabel}>{pt.label}</span>
+              <span className={styles.optionDesc}>{pt.description}</span>
+            </button>
+          ))}
+        </div>
+
+        <div className={styles.infoBox}>
+          {selectedData?.note && (
+            <p className={styles.infoNote}>{selectedData.note}</p>
+          )}
+          {selectedData?.warning && (
+            <p className={styles.infoWarning}>⚠️ {selectedData.warning}</p>
+          )}
         </div>
 
         <div className={styles.actions}>

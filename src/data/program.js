@@ -264,7 +264,7 @@ export const PAIN_TYPES = [
     description: 'Pain came on during the session and got worse as you continued.',
     allowAdvance: false,
     color: 'danger',
-    warning: 'Do not advance. Rest and allow full recovery before next session. Consult your provider if it persists.',
+    warning: 'Do not advance. Rest and allow full recovery before next session. Consult your healthcare provider if it persists.',
   },
   {
     id: 'type-4',
