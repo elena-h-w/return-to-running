@@ -9,7 +9,21 @@
       "Bash(gh api *)",
       "WebFetch(domain:github.com)",
       "WebFetch(domain:elenahw.com)",
-      "Bash(git add *)"
+      "Bash(git add *)",
+      "Bash(convert --version)",
+      "Bash(python3 -c \"from PIL import Image; print\\('pillow ok'\\)\")",
+      "Bash(magick -size 512x512 xc:\"#f5f0ea\" -font \"Apple-Color-Emoji\" -pointsize 320 -gravity center -annotate 0 \"🏃🏻‍♀️\" public/icon-512.png)",
+      "Bash(magick -list font)",
+      "Bash(fc-list)",
+      "Bash(magick -size 512x512 xc:\"#f5f0ea\" -font \"/System/Library/Fonts/Apple Color Emoji.ttc\" -pointsize 320 -gravity center -annotate 0 \"🏃🏻‍♀️\" /Users/elenawang/Documents/Projects/return-to-running/public/icon-512.png)",
+      "Bash(node -e ' *)",
+      "Bash(python3.9 -c ' *)",
+      "Bash(python3 -c \"import PIL; print\\('ok'\\)\")",
+      "Read(//usr/bin/**)",
+      "Bash(brew list *)",
+      "Bash(python3.11 -c \"from PIL import Image; print\\('pillow ok'\\)\")",
+      "Bash(pip3.11 install *)",
+      "Bash(python3.11 -c ' *)"
     ]
   }
 }
