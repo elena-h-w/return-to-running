@@ -1,10 +1,12 @@
 import { useState } from 'react'
-import { STRENGTH_EXERCISES, RUN_PHASES } from '../data/program'
+import { STRENGTH_EXERCISES, RUN_PHASES, DAY_NAMES } from '../data/program'
 import styles from './ProgramView.module.css'
+
+const TYPE_OPTIONS = ['strength', 'run', 'rest']
 
 export default function ProgramView({ program }) {
   const [tab, setTab] = useState('run')
-  const { state, getCurrentRunPhaseData, getCurrentRunStageData } = program
+  const { state, getCurrentRunPhaseData, getCurrentRunStageData, updateSettings } = program
   const currentPhase = getCurrentRunPhaseData()
   const currentStage = getCurrentRunStageData()
 
@@ -21,12 +23,18 @@ export default function ProgramView({ program }) {
         <button className={`${styles.tabBtn} ${tab === 'strength' ? styles.tabActive : ''}`} onClick={() => setTab('strength')}>
           Strength
         </button>
+        <button className={`${styles.tabBtn} ${tab === 'schedule' ? styles.tabActive : ''}`} onClick={() => setTab('schedule')}>
+          Schedule
+        </button>
       </div>
 
       {tab === 'run' && (
         <RunProgram currentPhase={currentPhase} currentStage={currentStage} programState={state} />
       )}
       {tab === 'strength' && <StrengthProgram />}
+      {tab === 'schedule' && (
+        <ScheduleEditor weekPattern={state.weekPattern} onSave={weekPattern => updateSettings({ weekPattern })} />
+      )}
     </div>
   )
 }
@@ -128,6 +136,58 @@ function Phase3Schedule({ weeks }) {
           ))}
         </div>
       ))}
+    </div>
+  )
+}
+
+function ScheduleEditor({ weekPattern: initial, onSave }) {
+  const [pattern, setPattern] = useState([...initial])
+  const [saved, setSaved] = useState(false)
+
+  function cycleDay(i) {
+    setSaved(false)
+    setPattern(prev => {
+      const next = [...prev]
+      const idx = TYPE_OPTIONS.indexOf(next[i])
+      next[i] = TYPE_OPTIONS[(idx + 1) % TYPE_OPTIONS.length]
+      return next
+    })
+  }
+
+  function handleSave() {
+    const counts = { strength: 0, run: 0, rest: 0 }
+    pattern.forEach(t => counts[t]++)
+    if (counts.strength < 2 || counts.run < 2) {
+      alert('Schedule at least 2 strength days and 2 run days.')
+      return
+    }
+    onSave(pattern)
+    setSaved(true)
+  }
+
+  return (
+    <div className={styles.section}>
+      <div className={styles.scheduleCard}>
+        <p className={styles.scheduleDesc}>Tap a day to cycle between Strength, Run, and Rest.</p>
+        <div className={styles.patternGrid}>
+          {DAY_NAMES.map((d, i) => (
+            <button
+              key={d}
+              className={`${styles.dayBtn} ${styles[`dayBtn_${pattern[i]}`]}`}
+              onClick={() => cycleDay(i)}
+            >
+              <span className={styles.dayBtnName}>{d}</span>
+              <span className={styles.dayBtnIcon}>
+                {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃🏻‍♀️' : '🧘🏻‍♀️'}
+              </span>
+              <span className={styles.dayBtnLabel}>{pattern[i]}</span>
+            </button>
+          ))}
+        </div>
+        <button className={styles.saveBtn} onClick={handleSave}>
+          {saved ? 'Saved ✓' : 'Save schedule'}
+        </button>
+      </div>
     </div>
   )
 }

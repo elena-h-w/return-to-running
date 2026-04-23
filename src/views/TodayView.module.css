@@ -35,6 +35,12 @@
   gap: 4px;
   padding: 8px 4px;
   border-radius: var(--radius-sm);
+  -webkit-tap-highlight-color: transparent;
+  transition: transform 0.1s;
+}
+
+.dayCell:active {
+  transform: scale(0.88);
 }
 
 .dayCellToday {

@@ -295,6 +295,87 @@
   color: var(--text-muted);
 }
 
+/* Schedule editor */
+.scheduleCard {
+  background: var(--surface);
+  border-radius: var(--radius-lg);
+  padding: 20px;
+  box-shadow: var(--shadow-sm);
+}
+
+.scheduleDesc {
+  font-size: 14px;
+  color: var(--text-muted);
+  margin-bottom: 16px;
+}
+
+.patternGrid {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  gap: 6px;
+  margin-bottom: 16px;
+}
+
+.dayBtn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 3px;
+  padding: 8px 4px;
+  border-radius: var(--radius-sm);
+  border: 1.5px solid var(--border);
+  background: var(--surface-warm);
+  transition: background 0.15s, border-color 0.15s;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.dayBtn_strength {
+  background: var(--accent-light);
+  border-color: var(--accent);
+}
+
+.dayBtn_run {
+  background: var(--run-light);
+  border-color: var(--run);
+}
+
+.dayBtnName {
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--text-muted);
+  text-transform: uppercase;
+}
+
+.dayBtnIcon {
+  font-size: 16px;
+}
+
+.dayBtnLabel {
+  font-size: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.03em;
+  color: var(--text-muted);
+}
+
+.dayBtn_strength .dayBtnLabel { color: var(--accent-dark); }
+.dayBtn_run .dayBtnLabel { color: var(--run); }
+
+.saveBtn {
+  width: 100%;
+  padding: 14px;
+  border-radius: var(--radius-md);
+  background: var(--accent);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  transition: background 0.15s;
+}
+
+.saveBtn:active {
+  background: var(--accent-dark);
+}
+
 /* Strength accordion */
 .exCard {
   background: var(--surface);

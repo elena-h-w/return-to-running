@@ -5,18 +5,22 @@ import PainCheck from '../components/PainCheck'
 import styles from './TodayView.module.css'
 
 const DAY_LABELS = ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
-const TYPE_COLORS = { strength: 'accent', run: 'run', rest: 'muted' }
+const TYPE_OPTIONS = ['strength', 'run', 'rest']
 
-function WeekStrip({ pattern, todayDow }) {
+function WeekStrip({ pattern, todayDow, onDayTap }) {
   return (
     <div className={styles.weekStrip}>
       {DAY_LABELS.map((d, i) => (
-        <div key={d} className={`${styles.dayCell} ${i === todayDow ? styles.dayCellToday : ''}`}>
+        <button
+          key={d}
+          className={`${styles.dayCell} ${i === todayDow ? styles.dayCellToday : ''}`}
+          onClick={() => onDayTap(i)}
+        >
           <span className={styles.dayName}>{d}</span>
-          <span className={`${styles.dayType} ${styles[`dayType_${pattern[i]}`]}`}>
+          <span className={styles.dayType}>
             {pattern[i] === 'strength' ? '💪' : pattern[i] === 'run' ? '🏃🏻‍♀️' : '🧘🏻‍♀️'}
           </span>
-        </div>
+        </button>
       ))}
     </div>
   )
@@ -40,7 +44,16 @@ export default function TodayView({ program }) {
     completeRun,
     advanceRunStage,
     canAdvanceRun,
+    updateSettings,
   } = program
+
+  function handleDayTap(i) {
+    const current = state.weekPattern[i]
+    const next = TYPE_OPTIONS[(TYPE_OPTIONS.indexOf(current) + 1) % TYPE_OPTIONS.length]
+    const newPattern = [...state.weekPattern]
+    newPattern[i] = next
+    updateSettings({ weekPattern: newPattern })
+  }
 
   if (workoutMode) {
     return (
@@ -89,7 +102,7 @@ export default function TodayView({ program }) {
         </h1>
       </div>
 
-      <WeekStrip pattern={state.weekPattern} todayDow={todayDow} />
+      <WeekStrip pattern={state.weekPattern} todayDow={todayDow} onDayTap={handleDayTap} />
 
       {/* Session complete banner */}
       {isTodayComplete && todayType !== 'rest' && (
