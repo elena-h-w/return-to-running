@@ -169,6 +169,8 @@ export function useProgram() {
     completeStrength,
     updateSettings,
     resetAll,
-    canAdvanceRun: state.runPhaseConsecutivePainFree >= 2,
+    canAdvanceRun: state.currentRunPhase === 0
+      ? state.runPhaseConsecutivePainFree >= 1   // Phase 1 (walking): 1 session enough
+      : state.runPhaseConsecutivePainFree >= 2,  // Phase 2 stages: 2 sessions
   }
 }

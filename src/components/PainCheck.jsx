@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { createPortal } from 'react-dom'
 import { PAIN_TYPES } from '../data/program'
 import styles from './PainCheck.module.css'
 
@@ -12,7 +13,7 @@ export default function PainCheck({ onSubmit, onCancel }) {
 
   const selectedData = PAIN_TYPES.find(p => p.id === selected)
 
-  return (
+  return createPortal(
     <div className={styles.overlay}>
       <div className={styles.sheet + ' scale-in'}>
         <div className={styles.handle} />
@@ -52,6 +53,7 @@ export default function PainCheck({ onSubmit, onCancel }) {
           </button>
         </div>
       </div>
-    </div>
+    </div>,
+    document.body
   )
 }

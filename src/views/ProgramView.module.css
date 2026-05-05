@@ -151,6 +151,22 @@
   margin-bottom: 16px;
 }
 
+.advanceBtn {
+  width: 100%;
+  padding: 13px;
+  border-radius: var(--radius-md);
+  background: var(--success);
+  color: white;
+  font-size: 15px;
+  font-weight: 600;
+  margin-bottom: 16px;
+  transition: opacity 0.15s;
+}
+
+.advanceBtn:active {
+  opacity: 0.85;
+}
+
 /* Stage list */
 .stageList {
   display: flex;
