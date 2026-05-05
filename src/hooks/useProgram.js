@@ -90,6 +90,25 @@ export function useProgram() {
     return newEntry
   }
 
+  // Derived from the log — always in sync with isTodayComplete
+  function getConsecutivePainFree() {
+    const currentPhase = getCurrentRunPhaseData()
+    let entries = log
+      .filter(e => e.type === 'run' && e.phaseId === currentPhase.id)
+      .sort((a, b) => b.id - a.id) // most recent first
+
+    if (currentPhase.type === 'stages') {
+      entries = entries.filter(e => e.stage === state.currentRunStage)
+    }
+
+    let count = 0
+    for (const entry of entries) {
+      if (entry.completed) count++
+      else break
+    }
+    return count
+  }
+
   function completeRun(painTypeId) {
     const painFree = painTypeId === 'none' || painTypeId === 'type-1' || painTypeId === 'type-2'
     const phase = getCurrentRunPhaseData()
@@ -102,15 +121,6 @@ export function useProgram() {
       painType: painTypeId,
       completed: painFree,
     })
-
-    if (painFree) {
-      setState(prev => ({
-        ...prev,
-        runPhaseConsecutivePainFree: prev.runPhaseConsecutivePainFree + 1,
-      }))
-    } else if (painTypeId === 'type-3' || painTypeId === 'type-4') {
-      setState(prev => ({ ...prev, runPhaseConsecutivePainFree: 0 }))
-    }
 
     return entry
   }
@@ -153,6 +163,8 @@ export function useProgram() {
     setLog([])
   }
 
+  const consecutivePainFree = getConsecutivePainFree()
+
   return {
     state,
     log,
@@ -169,8 +181,9 @@ export function useProgram() {
     completeStrength,
     updateSettings,
     resetAll,
+    consecutivePainFree,
     canAdvanceRun: state.currentRunPhase === 0
-      ? state.runPhaseConsecutivePainFree >= 1   // Phase 1 (walking): 1 session enough
-      : state.runPhaseConsecutivePainFree >= 2,  // Phase 2 stages: 2 sessions
+      ? consecutivePainFree >= 1   // Phase 1 (walking): 1 session enough
+      : consecutivePainFree >= 2,  // Phase 2 stages: 2 sessions
   }
 }

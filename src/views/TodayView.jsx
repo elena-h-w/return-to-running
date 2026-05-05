@@ -44,6 +44,7 @@ export default function TodayView({ program }) {
     completeRun,
     advanceRunStage,
     canAdvanceRun,
+    consecutivePainFree,
     updateSettings,
   } = program
 
@@ -164,7 +165,7 @@ export default function TodayView({ program }) {
           canAdvanceRun={canAdvanceRun}
           onRunComplete={handleRunComplete}
           onAdvance={advanceRunStage}
-          consecutivePainFree={state.runPhaseConsecutivePainFree}
+          consecutivePainFree={consecutivePainFree}
           pendingPainResult={pendingPainResult}
         />
       )}

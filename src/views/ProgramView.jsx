@@ -6,7 +6,7 @@ const TYPE_OPTIONS = ['strength', 'run', 'rest']
 
 export default function ProgramView({ program }) {
   const [tab, setTab] = useState('run')
-  const { state, getCurrentRunPhaseData, getCurrentRunStageData, updateSettings, advanceRunStage } = program
+  const { state, getCurrentRunPhaseData, getCurrentRunStageData, updateSettings, advanceRunStage, canAdvanceRun, consecutivePainFree } = program
   const currentPhase = getCurrentRunPhaseData()
   const currentStage = getCurrentRunStageData()
 
@@ -29,7 +29,7 @@ export default function ProgramView({ program }) {
       </div>
 
       {tab === 'run' && (
-        <RunProgram currentPhase={currentPhase} currentStage={currentStage} programState={state} onAdvance={advanceRunStage} />
+        <RunProgram currentPhase={currentPhase} currentStage={currentStage} programState={state} onAdvance={advanceRunStage} canAdvanceRun={canAdvanceRun} />
       )}
       {tab === 'strength' && <StrengthProgram />}
       {tab === 'schedule' && (
@@ -39,7 +39,7 @@ export default function ProgramView({ program }) {
   )
 }
 
-function RunProgram({ currentPhase, currentStage, programState, onAdvance }) {
+function RunProgram({ currentPhase, currentStage, programState, onAdvance, canAdvanceRun }) {
   return (
     <div className={styles.section}>
       {/* Phase progress */}
@@ -68,7 +68,7 @@ function RunProgram({ currentPhase, currentStage, programState, onAdvance }) {
         <h2 className={styles.phaseTitle}>Phase {currentPhase.phase}: {currentPhase.name}</h2>
         <p className={styles.phaseDesc}>{currentPhase.description}</p>
 
-        {currentPhase.phase === 1 && programState.runPhaseConsecutivePainFree >= 1 && (
+        {currentPhase.phase === 1 && canAdvanceRun && (
           <button className={styles.advanceBtn} onClick={onAdvance}>
             Ready to advance → Walk/Jog
           </button>
