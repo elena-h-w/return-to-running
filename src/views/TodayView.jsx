@@ -44,7 +44,6 @@ export default function TodayView({ program }) {
     completeRun,
     advanceRunStage,
     canAdvanceRun,
-    consecutivePainFree,
     updateSettings,
   } = program
 
@@ -165,7 +164,6 @@ export default function TodayView({ program }) {
           canAdvanceRun={canAdvanceRun}
           onRunComplete={handleRunComplete}
           onAdvance={advanceRunStage}
-          consecutivePainFree={consecutivePainFree}
           pendingPainResult={pendingPainResult}
         />
       )}
@@ -173,7 +171,7 @@ export default function TodayView({ program }) {
   )
 }
 
-function RunCard({ phase, stage, phase3minutes, isTodayComplete, canAdvanceRun, onRunComplete, onAdvance, consecutivePainFree, pendingPainResult }) {
+function RunCard({ phase, stage, phase3minutes, isTodayComplete, canAdvanceRun, onRunComplete, onAdvance, pendingPainResult }) {
   const painData = PAIN_TYPES.find(p => p.id === pendingPainResult)
 
   return (
@@ -225,11 +223,6 @@ function RunCard({ phase, stage, phase3minutes, isTodayComplete, canAdvanceRun, 
             <button className={styles.primaryBtn + ' ' + styles.runBtn} onClick={onRunComplete}>
               Log this run
             </button>
-          )}
-          {isTodayComplete && (
-            <div className={styles.streak}>
-              {consecutivePainFree}/2 pain-free sessions to advance
-            </div>
           )}
           {isTodayComplete && canAdvanceRun && (
             <button className={styles.advanceBtn} onClick={onAdvance}>

@@ -182,8 +182,6 @@ export function useProgram() {
     updateSettings,
     resetAll,
     consecutivePainFree,
-    canAdvanceRun: state.currentRunPhase === 0
-      ? consecutivePainFree >= 1   // Phase 1 (walking): 1 session enough
-      : consecutivePainFree >= 2,  // Phase 2 stages: 2 sessions
+    canAdvanceRun: consecutivePainFree >= 1,
   }
 }
